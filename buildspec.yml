@@ -15,5 +15,5 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - aws s3 sync build/ s3://avi-demo-static-site --acl public-read
+      - aws s3 cp --recursive ./aws_code_pipeline/ s3://avi-demo-static-site
       
