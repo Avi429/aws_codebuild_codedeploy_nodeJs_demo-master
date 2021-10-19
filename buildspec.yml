@@ -12,8 +12,7 @@ phases:
       - npm install
       - aws --version
       - npm build
-  post_build:
-    commands:
-      - echo Build completed on `date`
-      - aws s3 cp --recursive ./aws_code_pipeline/ s3://avi-demo-static-site
+artifacts:
+  files: '**/*'
+  name: avi-demo-static-site
       
