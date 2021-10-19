@@ -6,17 +6,14 @@ phases:
   install:
     runtime-versions:
       nodejs: 12
-  pre_build:
-    commands:
-      - echo Installing
-      - npm install
-      - aws --version
   build:
     commands:
       - echo Build started on `date`
-      - CI=true npm test 
-      - npm run build
+      - npm install
+      - aws --version
+      - npm test
+      - npm build
   post_build:
     commands:
       - echo Build completed on `date`
-      - aws s3 sync build/ s3://avi-demo-static-site --acl public-read
+      
